@@ -31,8 +31,15 @@ app.get('/art-one', function (req, res) {
   res.send("article one is here");
 });
 
-app.get('/art-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'art-two.html'));
+var names=[];
+app.get('/submit-name/:name', function (req, res) {
+    
+var name = req.params.name;
+name.push(name);
+
+res.send(json.stringfy(names));
+
+
 });
 
 app.get('/ui/main.js', function (req, res) {
