@@ -18,7 +18,7 @@ button.onclick = function() {
     }
    
     request.open('GET', 'http://mpalanisamee.imad.hasura-app.io', true);
-   objUserID.send(null);
+  
    
    
 };
