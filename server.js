@@ -18,7 +18,7 @@ var config = {
     host:'db.imad.hasura-app.io',
     port:'5432',
     password: process.env.DB_PASSWORD
-}
+};
 var counter=0;
 app.get('/counter', function(req, res){
     counter=counter+1;
