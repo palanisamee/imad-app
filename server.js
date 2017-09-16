@@ -53,12 +53,15 @@ app.post('/create-user',function(req, res) {
 	var password = req.body.password;
 	var salt = crypto.RandomBytes(128).toString("hex") ;
 	var dbString = hash(password, salt);
-	connection.query="INSERT INTO `admins`(username, password ) VALUES ($1, $2)" ;
-	 connection.query(sql, function (err, result) {
- if (err) throw err;
- 
-	});
+	pool.query="INSERT INTO `admins`(username, password ) VALUES ($1, $2)" ;
+if (err){
+    res.status(500).send(err.toString());
+}else{
+    res.send('okok:' +username);
+}
+    });
 	
+
 });
 
 app.get('/art-one', function (req, res) {
