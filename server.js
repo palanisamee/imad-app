@@ -47,6 +47,19 @@ app.get('/hash/:input', function(req,res){
 	res.send(hashedString);
 });
 
+app.post('/create-user',function(req, res) {
+	
+	var username = req.body.username;
+	var password = req.body.password;
+	var salt = crypto.RandomBytes(128).toString("hex") ;
+	var dbString = hash(password, salt);
+	connection.query="INSERT INTO `admins`(username, password ) VALUES ($1, $2)" ;
+	 connection.query(sql, function (err, result) {
+ if (err) throw err;
+ 
+	});
+	
+});
 
 app.get('/art-one', function (req, res) {
   res.send("article one is here");
