@@ -17,7 +17,7 @@ var config = {
     database:'mpalanisamee',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password: process.env.DB_PASSWORD
+    password: db-mpalanisamee-69986
 };
 var counter=0;
 app.get('/counter', function(req, res){
