@@ -53,10 +53,10 @@ app.post('/create-user',function(req, res) {
 	var password = req.body.password;
 	var salt = crypto.RandomBytes(128).toString("hex") ;
 	var dbString = hash(password, salt);
-	pool.query="INSERT INTO `admins`(username, password ) VALUES ($1, $2)" ;
+	pool.query('INSERT INTO `admins`(username, password ) VALUES ($1, $2)', [username, dbString], function (err, result){
 if (err){
     res.status(500).send(err.toString());
-}else{
+} else {
     res.send('okok:' +username);
 }
     });
